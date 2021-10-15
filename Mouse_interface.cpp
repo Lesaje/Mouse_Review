@@ -13,7 +13,7 @@ void matrix_multiplication(std::vector<int64_t>* first_matrix,
 
 
 /*
-Raises a matrix adj to a power, saving result in result_matrix
+Raises a adjacency_matrix to a power, saving result in result_matrix
 */
 void binpow(int64_t power, std::vector<int64_t>* adjacency_matrix,
     std::vector<int64_t>* result_matrix)
