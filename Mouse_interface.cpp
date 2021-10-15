@@ -9,8 +9,8 @@ const int64_t MOD = 1000000007;
 Matrix multiplication C=A*B for square matrices
 Integer values not exceeding 1 000 000 007
 */
-void matrix_multiplication(std::vector<int64_t>* A,
-    std::vector<int64_t>* B, std::vector<int64_t>* C)
+void matrix_multiplication(std::vector<int64_t>* first_matrix,
+    std::vector<int64_t>* second_matrix, std::vector<int64_t>* result_matrix)
 
 
 /*
