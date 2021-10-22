@@ -34,7 +34,7 @@ instance_variables read(std::istream& in);
 
 int64_t get_answer(const matrix& result_matrix);
 
-const int64_t solve_task(matrix& adjacency_matrix, const int64_t path_len);
+const int64_t solve_task(const matrix& adjacency_matrix, const int64_t path_len);
 
 void output(std::ostream& out, const int64_t answer);
 
