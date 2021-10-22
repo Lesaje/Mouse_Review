@@ -3,45 +3,53 @@
 #include <tuple>
 #include <cmath>
 
-const int64_t MOD = 1000000007;
+typedef std::vector<std::vector<int64_t>> matrix;
+
+const int64_t MODULE = 1000000007;
+
+struct instance_variables
+{
+    int64_t matrix_size;
+    int64_t number_of_edges;
+    int64_t path_len;
+};
 
 /*
 Matrix multiplication with integer values not exceeding 1 000 000 007
 */
-void matrix_multiplication(const std::vector<int64_t>& first_matrix,
-    const std::vector<int64_t>& second_matrix,
-    std::vector<int64_t>* result_matrix)
-    
-    
-std::vector<int64_t> make_identity_matrix(const int64_t matrix_size)
-    
+void matrix_multiplication(const matrix& first_matrix,
+    const matrix& second_matrix, matrix* result_matrix);
+
+matrix make_identity_matrix(const int64_t matrix_size);
 
 /*
 Raises adjacency_matrix to a power
 */
-std::vector<int64_t> binpow(int64_t power,
-    const std::vector<int64_t>& adjacency_matrix)
-    
+matrix binpow(int64_t power, const matrix& adjacency_matrix);
 
-std::vector<int64_t> make_adjacency_matrix(const int64_t number_of_edges,
-    const int64_t matrix_size, std::istream& in)
-    
+matrix make_adjacency_matrix(const int64_t number_of_edges,
+    const int64_t matrix_size, std::istream& in);
 
-std::tuple<int64_t, int64_t, int64_t> read(std::istream& in)
+instance_variables read(std::istream& in);
 
-    
-int64_t get_answer(const std::vector<int64_t>& result_matrix)
+int64_t get_answer(const matrix& result_matrix);
 
-    
-void solve_task(std::istream& in)
+const int64_t solve_task(matrix& adjacency_matrix, const int64_t path_len);
 
-    
+void output(std::ostream& out, const int64_t answer);
+
 int main() {
     std::ios_base::sync_with_stdio(false);
     std::cin.tie(nullptr);
     std::cout.tie(nullptr);
 
-    solve_task(std::cin);
+    instance_variables input_data = read(std::cin);
 
+    matrix adjacency_matrix = make_adjacency_matrix(input_data.number_of_edges,
+        input_data.matrix_size, std::cin);
+
+    const int64_t answer = solve_task(adjacency_matrix, input_data.path_len);
+
+    output(std::cout, answer);
     return 0;
 }
